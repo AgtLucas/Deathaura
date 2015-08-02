@@ -43,7 +43,7 @@ var VDBTabBar = React.createClass({
   },
 
   renderTabOption(name, page) {
-    var isTabActive = this.props.activeTab === page,
+    var isTabActive = this.props.activeTab === page;
     console.log(name);
 
     return(

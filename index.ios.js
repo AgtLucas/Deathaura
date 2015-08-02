@@ -2,15 +2,21 @@
 
 var React = require('react-native');
 var SideMenu = require('react-native-side-menu');
+var ScrollableTabView = require('react-native-scrollable-tab-view');
 var Menu = require('./src/Components/Menu');
 var Button = require('./src/Components/MenuButton');
+var VDBTabBar = require('./src/Components/VDBTabBar');
 
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
+  ScrollView,
+  Dimensions,
 } = React;
+
+var deviceWidth = Dimensions.get('window').width;
 
 class VouDeOnibus extends React.Component {
 
@@ -44,7 +50,18 @@ class VouDeOnibus extends React.Component {
         onChange={this.handleChange.bind(this)}>
 
         <View style={styles.container}>
-          <Text style={styles.welcome}>Yo!</Text>
+          <ScrollableTabView render={() => <VDBTabBar />}>
+            <ScrollView tabLabel="Vou Agora" style={styles.tabView}>
+              <View style={styles.card}>
+                <Text>Vou Agora</Text>
+              </View>
+            </ScrollView>
+            <ScrollView tabLabel="Todas as linhas" style={styles.tabView}>
+              <View style={styles.card}>
+                <Text>Todas as linhas</Text>
+              </View>
+            </ScrollView>
+          </ScrollableTabView>
         </View>
 
         <Button style={styles.menuButton}
@@ -58,9 +75,8 @@ class VouDeOnibus extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#08C',
+    paddingTop: 80,
+    backgroundColor: '#FFF',
   },
   welcome: {
     fontSize: 20,
@@ -80,7 +96,24 @@ var styles = StyleSheet.create({
     left: 10,
     color: '#FFF',
     fontWeight: '600'
-  }
+  },
+  tabView: {
+    width: deviceWidth,
+    padding: 10,
+    backgroundColor: 'rgba(0,0,0,0.1)',
+  },
+  card: {
+    borderWidth: 1,
+    backgroundColor: '#FFF',
+    borderColor: 'rgba(0,0,0,0.1)',
+    margin: 5,
+    height: 150,
+    padding: 15,
+    shadowColor: '#CCC',
+    shadowOffset: {width: 2, height: 2},
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+  },
 });
 
 AppRegistry.registerComponent('VouDeOnibus', () => VouDeOnibus);

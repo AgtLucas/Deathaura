@@ -20,7 +20,7 @@ class MenuButton extends React.Component {
   render() {
     return(
       <TouchableOpacity onPress={this.handlePress.bind(this)}>
-        <Image source={require('image!menubutton')} />
+        <Image style={this.props.style} source={require('image!menubutton')} />
       </TouchableOpacity>
     );
   }

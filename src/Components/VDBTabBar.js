@@ -11,6 +11,8 @@ var {
 } = React;
 
 var deviceWidth = Dimensions.get('window').width;
+var precomputeStyle = require('precomputeStyle');
+var TAB_UNDERLINE_REF = 'TAB_UNDERLINE';
 
 var styles = StyleSheet.create({
   tab: {
@@ -34,9 +36,6 @@ var styles = StyleSheet.create({
 
 var VDBTabBar = React.createClass({
 
-  selectedTab: [],
-  unselectedTab: [],
-
   propTypes: {
     goToPage: React.PropTypes.func,
     activeTab: React.PropTypes.number,
@@ -48,13 +47,37 @@ var VDBTabBar = React.createClass({
     console.log(name);
 
     return(
-      <TouchableOpacity>
+      <TouchableOpacity key={name} onPress={() => this.props.goToPage(page)}>
         <View style={[styles.tab]}>
-          <Text>{name}</Text>
+          <Text style={{color: isTabActive ? 'navy' : 'black', fontWeight: isTabActive ? 'bold' : 'normal'}}>{name}</Text>
         </View>
       </TouchableOpacity>
-    )
-  }
+    );
+  },
+
+  setAnimationValue(value) {
+    this.refs[TAB_UNDERLINE_REF].setNativeProps(precomputeStyle({
+      left: (deviceWidth * value) / this.props.tabs.length
+    }))
+  },
+
+  render() {
+    var numberOfTabs = this.props.tabs.length;
+    var tabUnderlineStyle = {
+      position: 'absolute',
+      width: deviceWidth / numberOfTabs,
+      height: 2,
+      backgroundColor: 'navy',
+      bottom: 0,
+    };
+
+    return(
+      <View style={styles.tabs}>
+        {this.props.tabs.map((tab, i) => this.renderTabOption(tab, i))}
+        <View style={tabUnderlineStyle} ref={TAB_UNDERLINE_REF} />
+      </View>
+    );
+  },
 
 });
 

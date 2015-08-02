@@ -19,7 +19,7 @@ class MenuButton extends React.Component {
   render() {
     return(
       <TouchableOpacity onPress={this.handlePress.bind(this)}>
-        <Text style={this.props.style}>{this.props.childreen}</Text>
+        <Text style={this.props.style}>{this.props.children}</Text>
       </TouchableOpacity>
     );
   }

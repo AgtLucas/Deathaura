@@ -5,6 +5,7 @@ var React = require('react-native');
 var {
   TouchableOpacity,
   Text,
+  Image,
 } = React;
 
 class MenuButton extends React.Component {
@@ -19,7 +20,7 @@ class MenuButton extends React.Component {
   render() {
     return(
       <TouchableOpacity onPress={this.handlePress.bind(this)}>
-        <Text style={this.props.style}>{this.props.children}</Text>
+        <Image source={require('image!menubutton')} />
       </TouchableOpacity>
     );
   }

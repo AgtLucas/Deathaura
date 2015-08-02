@@ -48,9 +48,7 @@ class VouDeOnibus extends React.Component {
         </View>
 
         <Button style={styles.menuButton}
-          onPress={this.handleOpenWithTouchToClose.bind(this)}>
-          Menu
-        </Button>
+          onPress={this.handleOpenWithTouchToClose.bind(this)} />
       </SideMenu>
     )
   }

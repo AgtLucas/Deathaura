@@ -56,6 +56,24 @@ class VouDeOnibus extends React.Component {
               <View style={styles.card}>
                 <Text>Vou Agora</Text>
               </View>
+              <View style={styles.card}>
+                <Text>Vou Agora</Text>
+              </View>
+              <View style={styles.card}>
+                <Text>Vou Agora</Text>
+              </View>
+              <View style={styles.card}>
+                <Text>Vou Agora</Text>
+              </View>
+              <View style={styles.card}>
+                <Text>Vou Agora</Text>
+              </View>
+              <View style={styles.card}>
+                <Text>Vou Agora</Text>
+              </View>
+              <View style={styles.card}>
+                <Text>Vou Agora</Text>
+              </View>
             </ScrollView>
             <ScrollView tabLabel="Todas as linhas" style={styles.tabView}>
               <View style={styles.card}>
@@ -97,7 +115,7 @@ var styles = StyleSheet.create({
     left: 10,
     color: '#FFF',
     fontWeight: '600',
-    backgroundColor: 'red'
+    backgroundColor: '#08c'
   },
   tabView: {
     width: deviceWidth,

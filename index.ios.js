@@ -74,7 +74,9 @@ var styles = StyleSheet.create({
   },
   menuButton: {
     position: 'absolute',
-    top: 50,
+    width: 35,
+    height: 35,
+    top: 30,
     left: 10,
     color: '#FFF',
     fontWeight: '600'

@@ -47,7 +47,8 @@ class VouDeOnibus extends React.Component {
       <SideMenu
         menu={<Menu />}
         touchToClose={this.state.touchToClose}
-        onChange={this.handleChange.bind(this)}>
+        onChange={this.handleChange.bind(this)}
+        disableGestures={true}>
 
         <View style={styles.container}>
           <ScrollableTabView render={() => <VDBTabBar />}>
@@ -95,7 +96,8 @@ var styles = StyleSheet.create({
     top: 30,
     left: 10,
     color: '#FFF',
-    fontWeight: '600'
+    fontWeight: '600',
+    backgroundColor: 'red'
   },
   tabView: {
     width: deviceWidth,

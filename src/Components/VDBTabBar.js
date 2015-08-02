@@ -20,6 +20,7 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingBottom: 10,
+    backgroundColor: '#08c'
   },
   tabs: {
     height: 45,
